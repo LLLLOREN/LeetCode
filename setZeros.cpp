@@ -13,44 +13,44 @@ public:
         bool firstRowZero = false;
         bool firstColZero = false;
         //遍历数组，找出为0的行和列赋值给第一行第一列
-        for(int row = 0; row < matrix.size(); ++row){
-            for(int col = 0; col < matrix[row].size(); ++col){
-                if(matrix[row][col] == 0){
+        for(int row = 0; row < matrix.size(); ++row) {
+            for (int col = 0; col < matrix[row].size(); ++col) {
+                if (matrix[row][col] == 0) {
                     matrix[0][col] = 0;
                     matrix[row][0] = 0;
 
-                    if(row  == 0){
+                    if (row == 0) {
                         firstRowZero = true;
                     }
-                    if(col == 0){
+                    if (col == 0) {
                         firstColZero = true;
                     }
                 }
             }
-            //置0
-            for(int row = 1; row < matrix.size(); ++row){
-                if(matrix[row][0] == 0){
-                    for(int col = 1; col < matrix[row].size(); ++col){
-                        matrix[row][col] = 0;
-                    }
+        }
+        //置0
+        for(int row = 1; row < matrix.size(); ++row){
+            if(matrix[row][0] == 0){
+                for(int col = 1; col < matrix[row].size(); ++col){
+                    matrix[row][col] = 0;
                 }
             }
-            for(int col = 1; col < matrix[0].size(); ++col){
-                if(matrix[0][col] == 0){
-                    for(int row = 1; row < matrix.size(); ++row){
-                        matrix[row][col] = 0;
-                    }
+        }
+        for(int col = 1; col < matrix[0].size(); ++col){
+            if(matrix[0][col] == 0){
+                for(int row = 1; row < matrix.size(); ++row){
+                    matrix[row][col] = 0;
                 }
             }
-            if(firstRowZero){
-                for(int col = 0; col < matrix[0].size(); ++col){
-                    matrix[0][col] = 0;
-                }
+        }
+        if(firstRowZero){
+            for(int col = 0; col < matrix[0].size(); ++col){
+                matrix[0][col] = 0;
             }
-            if(firstRowZero){
-                for (int row = 0; row < matrix.size(); ++row) {
-                    matrix[row][0] = 0;
-                }
+        }
+        if(firstRowZero){
+            for (int row = 0; row < matrix.size(); ++row) {
+                matrix[row][0] = 0;
             }
         }
     }
